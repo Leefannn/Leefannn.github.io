@@ -1,0 +1,367 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>TechCorp 公司数据</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+        body {
+            background-color: #f5f7fa;
+            color: #333;
+            padding: 20px;
+            line-height: 1.6;
+        }
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+        .header {
+            text-align: center;
+            margin-bottom: 30px;
+            padding: 20px;
+            background: linear-gradient(135deg, #3498db, #2980b9);
+            border-radius: 10px;
+            color: white;
+            box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+        }
+        .header h1 {
+            font-size: 2.5rem;
+            margin-bottom: 10px;
+        }
+        .header p {
+            font-size: 1.2rem;
+            opacity: 0.9;
+        }
+        .card {
+            background-color: white;
+            border-radius: 10px;
+            box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+            margin-bottom: 25px;
+            padding: 20px;
+            transition: transform 0.3s ease;
+        }
+        .card:hover {
+            transform: translateY(-5px);
+        }
+        .card-title {
+            font-size: 1.5rem;
+            margin-bottom: 15px;
+            color: #2980b9;
+            display: flex;
+            align-items: center;
+        }
+        .card-title i {
+            margin-right: 10px;
+        }
+        .info-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+            gap: 15px;
+            margin-bottom: 20px;
+        }
+        .info-item {
+            display: flex;
+            align-items: center;
+            padding: 10px;
+            background-color: #f8f9fa;
+            border-radius: 5px;
+        }
+        .info-item i {
+            margin-right: 10px;
+            color: #3498db;
+            width: 20px;
+            text-align: center;
+        }
+        .info-label {
+            font-weight: bold;
+            margin-right: 10px;
+        }
+        .info-value {
+            color: #555;
+        }
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-top: 15px;
+        }
+        th, td {
+            padding: 12px 15px;
+            text-align: left;
+            border-bottom: 1px solid #ddd;
+        }
+        th {
+            background-color: #f2f2f2;
+            font-weight: bold;
+            color: #2980b9;
+        }
+        tr:hover {
+            background-color: #f5f5f5;
+        }
+        .tag {
+            display: inline-block;
+            background-color: #e1f0fa;
+            color: #2980b9;
+            padding: 5px 10px;
+            border-radius: 20px;
+            margin-right: 8px;
+            margin-bottom: 8px;
+            font-size: 0.9rem;
+        }
+        .chart-container {
+            height: 300px;
+            margin-top: 20px;
+        }
+        .nested-table {
+            margin-left: 20px;
+            width: calc(100% - 20px);
+        }
+        .status {
+            display: inline-block;
+            padding: 3px 8px;
+            border-radius: 4px;
+            font-size: 0.85rem;
+            font-weight: bold;
+        }
+        .status-true {
+            background-color: #d4edda;
+            color: #155724;
+        }
+        .status-false {
+            background-color: #f8d7da;
+            color: #721c24;
+        }
+        .null-value {
+            color: #999;
+            font-style: italic;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="header">
+            <h1><i class="fas fa-building"></i> TechCorp</h1>
+            <p>成立于 2005 年的科技创新公司</p>
+        </div>
+
+        <div class="card">
+            <div class="card-title"><i class="fas fa-info-circle"></i> 公司基本信息</div>
+            <div class="info-grid">
+                <div class="info-item">
+                    <i class="fas fa-building"></i>
+                    <span class="info-label">公司名称:</span>
+                    <span class="info-value">TechCorp</span>
+                </div>
+                <div class="info-item">
+                    <i class="fas fa-calendar-alt"></i>
+                    <span class="info-label">成立年份:</span>
+                    <span class="info-value">2005</span>
+                </div>
+                <div class="info-item">
+                    <i class="fas fa-chart-line"></i>
+                    <span class="info-label">营收:</span>
+                    <span class="info-value">45.6亿美元</span>
+                </div>
+                <div class="info-item">
+                    <i class="fas fa-globe"></i>
+                    <span class="info-label">上市状态:</span>
+                    <span class="info-value"><span class="status status-true">是</span></span>
+                </div>
+            </div>
+        </div>
+
+        <div class="card">
+            <div class="card-title"><i class="fas fa-map-marker-alt"></i> 办公地点</div>
+            <table>
+                <thead>
+                    <tr>
+                        <th>地点</th>
+                        <th>员工数</th>
+                        <th>部门</th>
+                        <th>地址</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>纽约</td>
+                        <td>120</td>
+                        <td>工程部, 销售部, 人力资源部</td>
+                        <td>123 Tech Ave, 10001</td>
+                    </tr>
+                    <tr>
+                        <td>旧金山</td>
+                        <td>85</td>
+                        <td>工程部, 市场部</td>
+                        <td>456 Innovation Blvd, 94107</td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+
+        <div class="card">
+            <div class="card-title"><i class="fas fa-box"></i> 产品信息</div>
+            <table>
+                <thead>
+                    <tr>
+                        <th>产品名称</th>
+                        <th>价格</th>
+                        <th>库存状态</th>
+                        <th>重量</th>
+                        <th>尺寸</th>
+                        <th>颜色</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>Widget Pro</td>
+                        <td>$99.99</td>
+                        <td><span class="status status-true">有库存</span></td>
+                        <td>1.2 kg</td>
+                        <td>10.5 × 5.2 × 3.8 cm</td>
+                        <td>红色, 蓝色, 黑色</td>
+                    </tr>
+                    <tr>
+                        <td>Gadget Lite</td>
+                        <td>$49.99</td>
+                        <td><span class="status status-false">无库存</span></td>
+                        <td>0.8 kg</td>
+                        <td>8.1 × 4.0 × 2.5 cm</td>
+                        <td>银色, 白色</td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+
+        <div class="card">
+            <div class="card-title"><i class="fas fa-users"></i> 员工信息</div>
+            <div class="info-grid">
+                <div class="info-item">
+                    <i class="fas fa-user-friends"></i>
+                    <span class="info-label">总员工数:</span>
+                    <span class="info-value">205</span>
+                </div>
+            </div>
+            
+            <div class="card-title" style="font-size: 1.2rem; margin-top: 20px;"><i class="fas fa-sitemap"></i> 部门分布</div>
+            <div class="chart-container">
+                <canvas id="departmentChart"></canvas>
+            </div>
+            
+            <div class="card-title" style="font-size: 1.2rem; margin-top: 20px;"><i class="fas fa-user-tie"></i> 管理层</div>
+            <table>
+                <thead>
+                    <tr>
+                        <th>姓名</th>
+                        <th>职位</th>
+                        <th>直接下属</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>Alice Chen</td>
+                        <td>CEO</td>
+                        <td>8</td>
+                    </tr>
+                    <tr>
+                        <td>Bob Johnson</td>
+                        <td>CTO</td>
+                        <td>5</td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+
+        <div class="card">
+            <div class="card-title"><i class="fas fa-tags"></i> 标签</div>
+            <div>
+                <span class="tag">技术</span>
+                <span class="tag">创新</span>
+                <span class="tag">B2B</span>
+                <span class="tag">SaaS</span>
+            </div>
+        </div>
+
+        <div class="card">
+            <div class="card-title"><i class="fas fa-cog"></i> 元数据</div>
+            <div class="info-grid">
+                <div class="info-item">
+                    <i class="fas fa-clock"></i>
+                    <span class="info-label">最后更新:</span>
+                    <span class="info-value">2023-10-15 14:30:00</span>
+                </div>
+                <div class="info-item">
+                    <i class="fas fa-code-branch"></i>
+                    <span class="info-label">版本:</span>
+                    <span class="info-value">2.3.1</span>
+                </div>
+                <div class="info-item">
+                    <i class="fas fa-power-off"></i>
+                    <span class="info-label">活跃状态:</span>
+                    <span class="info-value"><span class="status status-true">是</span></span>
+                </div>
+                <div class="info-item">
+                    <i class="fas fa-flag"></i>
+                    <span class="info-label">标志:</span>
+                    <span class="info-value">1, 0, 1, 1, 0</span>
+                </div>
+            </div>
+        </div>
+
+        <div class="card">
+            <div class="card-title"><i class="fas fa-project-diagram"></i> 即将开展的项目</div>
+            <div class="null-value">暂无数据</div>
+        </div>
+    </div>
+
+    <script>
+        // 部门分布图表
+        const ctx = document.getElementById('departmentChart').getContext('2d');
+        const departmentChart = new Chart(ctx, {
+            type: 'pie',
+            data: {
+                labels: ['工程部', '销售部', '市场部', '人力资源部'],
+                datasets: [{
+                    data: [110, 45, 30, 20],
+                    backgroundColor: [
+                        '#3498db',
+                        '#2ecc71',
+                        '#f1c40f',
+                        '#e74c3c'
+                    ],
+                    borderWidth: 1
+                }]
+            },
+            options: {
+                responsive: true,
+                maintainAspectRatio: false,
+                plugins: {
+                    legend: {
+                        position: 'right',
+                    },
+                    tooltip: {
+                        callbacks: {
+                            label: function(context) {
+                                let label = context.label || '';
+                                if (label) {
+                                    label += ': ';
+                                }
+                                const sum = context.dataset.data.reduce((a, b) => a + b, 0);
+                                const percentage = Math.round((context.raw / sum) * 100);
+                                label += context.raw + ' 人 (' + percentage + '%)';
+                                return label;
+                            }
+                        }
+                    }
+                }
+            }
+        });
+    </script>
+</body>
+</html>

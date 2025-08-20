@@ -1,0 +1,272 @@
+<!DOCTYPE html>
+<html lang="zh">
+<head>
+    <meta charset="UTF-8">
+    <title>公司数据</title>
+    <style>
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            line-height: 1.6;
+            color: #333;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 20px;
+        }
+        .card {
+            background-color: #fff;
+            border-radius: 8px;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+            margin-bottom: 20px;
+            padding: 20px;
+        }
+        .card h2 {
+            margin-top: 0;
+            color: #2c3e50;
+            border-bottom: 2px solid #3498db;
+            padding-bottom: 10px;
+        }
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-top: 15px;
+        }
+        th, td {
+            padding: 12px;
+            text-align: left;
+            border-bottom: 1px solid #ddd;
+        }
+        th {
+            background-color: #f8f9fa;
+            font-weight: 600;
+        }
+        tr:hover {
+            background-color: #f5f5f5;
+        }
+        .label {
+            font-weight: 600;
+            color: #2c3e50;
+        }
+        .value {
+            color: #34495e;
+        }
+        .sub-card {
+            margin-left: 20px;
+            margin-top: 15px;
+            padding: 15px;
+            background-color: #f8f9fa;
+            border-left: 3px solid #3498db;
+        }
+        ul {
+            padding-left: 20px;
+        }
+        li {
+            margin-bottom: 5px;
+        }
+        .tag {
+            display: inline-block;
+            background-color: #e3f2fd;
+            color: #1976d2;
+            padding: 3px 8px;
+            border-radius: 4px;
+            margin-right: 5px;
+            margin-bottom: 5px;
+            font-size: 0.85em;
+        }
+    </style>
+</head>
+<body>
+    <div class="card">
+        <h2>🏢 公司信息</h2>
+        <table>
+            <tr>
+                <td class="label">公司名称</td>
+                <td class="value">Tech Innovations Inc.</td>
+            </tr>
+            <tr>
+                <td class="label">成立年份</td>
+                <td class="value">2010</td>
+            </tr>
+            <tr>
+                <td class="label">是否为上市公司</td>
+                <td class="value">是</td>
+            </tr>
+            <tr>
+                <td class="label">股票代码</td>
+                <td class="value">TII</td>
+            </tr>
+            <tr>
+                <td class="label">营收</td>
+                <td class="value">45.6亿美元</td>
+            </tr>
+        </table>
+    </div>
+
+    <div class="card">
+        <h2>👥 部门信息</h2>
+        
+        <div class="sub-card">
+            <h3>研究与发展部</h3>
+            <table>
+                <tr>
+                    <td class="label">经理</td>
+                    <td class="value">Alice Johnson (员工ID: EMP-02381)</td>
+                </tr>
+                <tr>
+                    <td class="label">专业领域</td>
+                    <td class="value">AI, 机器学习, 数据科学</td>
+                </tr>
+                <tr>
+                    <td class="label">预算</td>
+                    <td class="value">1,250,000美元</td>
+                </tr>
+            </table>
+            
+            <h4 style="margin-top: 15px;">项目</h4>
+            <table>
+                <tr>
+                    <th>项目ID</th>
+                    <th>项目名称</th>
+                    <th>状态</th>
+                    <th>团队规模</th>
+                </tr>
+                <tr>
+                    <td>PROJ-001</td>
+                    <td>量子计算框架</td>
+                    <td>进行中</td>
+                    <td>15人</td>
+                </tr>
+            </table>
+            
+            <h4 style="margin-top: 15px;">里程碑</h4>
+            <table>
+                <tr>
+                    <th>名称</th>
+                    <th>截止日期</th>
+                    <th>状态</th>
+                </tr>
+                <tr>
+                    <td>第一阶段完成</td>
+                    <td>2023-06-30</td>
+                    <td>已完成</td>
+                </tr>
+                <tr>
+                    <td>Alpha版本发布</td>
+                    <td>2023-12-15</td>
+                    <td>未完成</td>
+                </tr>
+            </table>
+        </div>
+        
+        <div class="sub-card">
+            <h3>市场营销部</h3>
+            <table>
+                <tr>
+                    <td class="label">经理</td>
+                    <td class="value">Bob Smith (员工ID: EMP-04127)</td>
+                </tr>
+                <tr>
+                    <td class="label">专业领域</td>
+                    <td class="value">数字营销, 品牌策略</td>
+                </tr>
+                <tr>
+                    <td class="label">预算</td>
+                    <td class="value">750,000美元</td>
+                </tr>
+            </table>
+            
+            <h4 style="margin-top: 15px;">项目</h4>
+            <table>
+                <tr>
+                    <th>项目ID</th>
+                    <th>项目名称</th>
+                    <th>状态</th>
+                    <th>团队规模</th>
+                </tr>
+                <tr>
+                    <td>PROJ-042</td>
+                    <td>全球品牌知名度活动</td>
+                    <td>计划中</td>
+                    <td>8人</td>
+                </tr>
+            </table>
+        </div>
+    </div>
+
+    <div class="card">
+        <h2>📍 公司地点</h2>
+        <table>
+            <tr>
+                <th>地址</th>
+                <th>员工数量</th>
+                <th>设施类型</th>
+            </tr>
+            <tr>
+                <td>
+                    <div>123 Innovation Way</div>
+                    <div>San Francisco, CA 94103</div>
+                    <div>坐标: 37.7749, -122.4194</div>
+                </td>
+                <td>250人</td>
+                <td>总部</td>
+            </tr>
+            <tr>
+                <td>
+                    <div>456 Tech Boulevard</div>
+                    <div>Austin, TX 73301</div>
+                    <div>坐标: 30.2672, -97.7431</div>
+                </td>
+                <td>120人</td>
+                <td>研发中心</td>
+            </tr>
+        </table>
+    </div>
+
+    <div class="card">
+        <h2>🤝 合作伙伴</h2>
+        <table>
+            <tr>
+                <th>公司名称</th>
+                <th>合作类型</th>
+                <th>合作起始日期</th>
+            </tr>
+            <tr>
+                <td>Cloud Services Ltd.</td>
+                <td>技术</td>
+                <td>2018-05-14</td>
+            </tr>
+            <tr>
+                <td>Global Logistics Inc.</td>
+                <td>供应链</td>
+                <td>2020-11-03</td>
+            </tr>
+        </table>
+    </div>
+
+    <div class="card">
+        <h2>📊 元数据</h2>
+        <table>
+            <tr>
+                <td class="label">最后更新时间</td>
+                <td class="value">2023-03-28T14:32:18Z</td>
+            </tr>
+            <tr>
+                <td class="label">版本</td>
+                <td class="value">2.3.1</td>
+            </tr>
+            <tr>
+                <td class="label">标签</td>
+                <td class="value">
+                    <span class="tag">technology</span>
+                    <span class="tag">innovation</span>
+                    <span class="tag">B2B</span>
+                    <span class="tag">SaaS</span>
+                </td>
+            </tr>
+            <tr>
+                <td class="label">备注</td>
+                <td class="value">无</td>
+            </tr>
+        </table>
+    </div>
+</body>
+</html>

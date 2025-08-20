@@ -1,0 +1,454 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Tech Innovations Inc. 公司数据</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.3/font/bootstrap-icons.css">
+    <style>
+        body {
+            background-color: #f8f9fa;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            color: #333;
+        }
+        .company-header {
+            background: linear-gradient(135deg, #2c3e50, #3498db);
+            color: white;
+            padding: 30px;
+            border-radius: 10px;
+            margin-bottom: 30px;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+        }
+        .card {
+            border: none;
+            border-radius: 10px;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
+            margin-bottom: 25px;
+            transition: transform 0.3s ease;
+        }
+        .card:hover {
+            transform: translateY(-5px);
+        }
+        .card-header {
+            background-color: #f8f9fa;
+            border-bottom: 1px solid #e9ecef;
+            font-weight: 600;
+            padding: 15px 20px;
+        }
+        .badge {
+            font-size: 0.8em;
+        }
+        .table {
+            margin-bottom: 0;
+        }
+        .table th {
+            border-top: none;
+            background-color: #f8f9fa;
+            font-weight: 600;
+        }
+        .icon-box {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            background-color: #e9f7fe;
+            color: #3498db;
+            margin-right: 10px;
+        }
+        .info-item {
+            display: flex;
+            align-items: center;
+            margin-bottom: 10px;
+        }
+        .info-label {
+            font-weight: 600;
+            margin-right: 10px;
+            min-width: 100px;
+        }
+        .status-badge {
+            font-size: 0.75em;
+            padding: 4px 8px;
+        }
+        .completed {
+            background-color: #d4edda;
+            color: #155724;
+        }
+        .in-progress {
+            background-color: #fff3cd;
+            color: #856404;
+        }
+        .planning {
+            background-color: #d1ecf1;
+            color: #0c5460;
+        }
+        .milestone-item {
+            display: flex;
+            justify-content: space-between;
+            padding: 8px 0;
+            border-bottom: 1px solid #eee;
+        }
+        .milestone-item:last-child {
+            border-bottom: none;
+        }
+        .chart-container {
+            height: 250px;
+            margin-bottom: 20px;
+        }
+    </style>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+</head>
+<body>
+    <div class="container py-4">
+        <!-- 公司基本信息 -->
+        <div class="company-header">
+            <div class="d-flex align-items-center">
+                <div class="icon-box">
+                    <i class="bi bi-building"></i>
+                </div>
+                <div>
+                    <h1 class="mb-1">Tech Innovations Inc.</h1>
+                    <p class="mb-0">成立于 2010 年 | 股票代码: TII</p>
+                </div>
+            </div>
+        </div>
+
+        <!-- 公司关键指标 -->
+        <div class="card mb-4">
+            <div class="card-header">
+                <h5 class="mb-0"><i class="bi bi-graph-up me-2"></i>公司关键指标</h5>
+            </div>
+            <div class="card-body">
+                <div class="row">
+                    <div class="col-md-4">
+                        <div class="info-item">
+                            <span class="info-label">成立年份:</span>
+                            <span>2010</span>
+                        </div>
+                        <div class="info-item">
+                            <span class="info-label">上市状态:</span>
+                            <span><span class="badge bg-success">是</span></span>
+                        </div>
+                    </div>
+                    <div class="col-md-4">
+                        <div class="info-item">
+                            <span class="info-label">股票代码:</span>
+                            <span>TII</span>
+                        </div>
+                        <div class="info-item">
+                            <span class="info-label">总员工数:</span>
+                            <span>370</span>
+                        </div>
+                    </div>
+                    <div class="col-md-4">
+                        <div class="info-item">
+                            <span class="info-label">年收入:</span>
+                            <span>45.6亿美元</span>
+                        </div>
+                        <div class="info-item">
+                            <span class="info-label">部门数量:</span>
+                            <span>2</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- 部门信息 -->
+        <div class="card mb-4">
+            <div class="card-header">
+                <h5 class="mb-0"><i class="bi bi-diagram-3 me-2"></i>部门信息</h5>
+            </div>
+            <div class="card-body">
+                <div class="row">
+                    <div class="col-md-6">
+                        <div class="card mb-3">
+                            <div class="card-header bg-light">
+                                <h6 class="mb-0">研究与发展部</h6>
+                            </div>
+                            <div class="card-body">
+                                <div class="info-item">
+                                    <span class="info-label">经理:</span>
+                                    <span>Alice Johnson (EMP-02381)</span>
+                                </div>
+                                <div class="info-item">
+                                    <span class="info-label">专长:</span>
+                                    <span>
+                                        <span class="badge bg-primary me-1">AI</span>
+                                        <span class="badge bg-primary me-1">机器学习</span>
+                                        <span class="badge bg-primary">数据科学</span>
+                                    </span>
+                                </div>
+                                <div class="info-item">
+                                    <span class="info-label">预算:</span>
+                                    <span>$1,250,000</span>
+                                </div>
+                                <div class="info-item">
+                                    <span class="info-label">项目:</span>
+                                    <span>1个</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-6">
+                        <div class="card mb-3">
+                            <div class="card-header bg-light">
+                                <h6 class="mb-0">市场营销部</h6>
+                            </div>
+                            <div class="card-body">
+                                <div class="info-item">
+                                    <span class="info-label">经理:</span>
+                                    <span>Bob Smith (EMP-04127)</span>
+                                </div>
+                                <div class="info-item">
+                                    <span class="info-label">专长:</span>
+                                    <span>
+                                        <span class="badge bg-primary me-1">数字营销</span>
+                                        <span class="badge bg-primary">品牌战略</span>
+                                    </span>
+                                </div>
+                                <div class="info-item">
+                                    <span class="info-label">预算:</span>
+                                    <span>$750,000</span>
+                                </div>
+                                <div class="info-item">
+                                    <span class="info-label">项目:</span>
+                                    <span>1个</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- 项目信息 -->
+        <div class="card mb-4">
+            <div class="card-header">
+                <h5 class="mb-0"><i class="bi bi-kanban me-2"></i>项目信息</h5>
+            </div>
+            <div class="card-body">
+                <div class="row">
+                    <div class="col-md-6">
+                        <div class="card mb-3">
+                            <div class="card-header bg-light d-flex justify-content-between align-items-center">
+                                <h6 class="mb-0">量子计算框架</h6>
+                                <span class="badge status-badge in-progress">进行中</span>
+                            </div>
+                            <div class="card-body">
+                                <div class="info-item">
+                                    <span class="info-label">项目ID:</span>
+                                    <span>PROJ-001</span>
+                                </div>
+                                <div class="info-item">
+                                    <span class="info-label">团队规模:</span>
+                                    <span>15人</span>
+                                </div>
+                                <div class="info-item">
+                                    <span class="info-label">里程碑:</span>
+                                </div>
+                                <div class="ms-3">
+                                    <div class="milestone-item">
+                                        <span>第一阶段完成</span>
+                                        <span class="badge completed">已完成</span>
+                                    </div>
+                                    <div class="milestone-item">
+                                        <span>Alpha发布</span>
+                                        <span class="badge bg-secondary">未完成</span>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-6">
+                        <div class="card mb-3">
+                            <div class="card-header bg-light d-flex justify-content-between align-items-center">
+                                <h6 class="mb-0">全球品牌意识活动</h6>
+                                <span class="badge status-badge planning">计划中</span>
+                            </div>
+                            <div class="card-body">
+                                <div class="info-item">
+                                    <span class="info-label">项目ID:</span>
+                                    <span>PROJ-042</span>
+                                </div>
+                                <div class="info-item">
+                                    <span class="info-label">团队规模:</span>
+                                    <span>8人</span>
+                                </div>
+                                <div class="info-item">
+                                    <span class="info-label">里程碑:</span>
+                                    <span>暂无</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- 办公地点 -->
+        <div class="card mb-4">
+            <div class="card-header">
+                <h5 class="mb-0"><i class="bi bi-geo-alt me-2"></i>办公地点</h5>
+            </div>
+            <div class="card-body">
+                <div class="table-responsive">
+                    <table class="table table-hover">
+                        <thead>
+                            <tr>
+                                <th>地址</th>
+                                <th>城市</th>
+                                <th>员工数</th>
+                                <th>设施类型</th>
+                                <th>坐标</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td>123 Innovation Way</td>
+                                <td>旧金山, CA</td>
+                                <td>250</td>
+                                <td><span class="badge bg-primary">总部</span></td>
+                                <td>37.7749, -122.4194</td>
+                            </tr>
+                            <tr>
+                                <td>456 Tech Boulevard</td>
+                                <td>奥斯汀, TX</td>
+                                <td>120</td>
+                                <td><span class="badge bg-secondary">研发中心</span></td>
+                                <td>30.2672, -97.7431</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+
+        <!-- 合作伙伴 -->
+        <div class="card mb-4">
+            <div class="card-header">
+                <h5 class="mb-0"><i class="bi bi-handshake me-2"></i>合作伙伴</h5>
+            </div>
+            <div class="card-body">
+                <div class="table-responsive">
+                    <table class="table table-hover">
+                        <thead>
+                            <tr>
+                                <th>公司名称</th>
+                                <th>合作类型</th>
+                                <th>合作开始时间</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td>Cloud Services Ltd.</td>
+                                <td><span class="badge bg-info">技术合作</span></td>
+                                <td>2018-05-14</td>
+                            </tr>
+                            <tr>
+                                <td>Global Logistics Inc.</td>
+                                <td><span class="badge bg-warning">供应链合作</span></td>
+                                <td>2020-11-03</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+
+        <!-- 元数据 -->
+        <div class="card mb-4">
+            <div class="card-header">
+                <h5 class="mb-0"><i class="bi bi-info-circle me-2"></i>元数据</h5>
+            </div>
+            <div class="card-body">
+                <div class="row">
+                    <div class="col-md-6">
+                        <div class="info-item">
+                            <span class="info-label">最后更新:</span>
+                            <span>2023-03-28 14:32:18 UTC</span>
+                        </div>
+                        <div class="info-item">
+                            <span class="info-label">版本:</span>
+                            <span>2.3.1</span>
+                        </div>
+                    </div>
+                    <div class="col-md-6">
+                        <div class="info-item">
+                            <span class="info-label">标签:</span>
+                            <span>
+                                <span class="badge bg-secondary me-1">技术</span>
+                                <span class="badge bg-secondary me-1">创新</span>
+                                <span class="badge bg-secondary me-1">B2B</span>
+                                <span class="badge bg-secondary">SaaS</span>
+                            </span>
+                        </div>
+                        <div class="info-item">
+                            <span class="info-label">备注:</span>
+                            <span>无</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- 部门预算图表 -->
+        <div class="card mb-4">
+            <div class="card-header">
+                <h5 class="mb-0"><i class="bi bi-pie-chart me-2"></i>部门预算分布</h5>
+            </div>
+            <div class="card-body">
+                <div class="chart-container">
+                    <canvas id="budgetChart"></canvas>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        // 部门预算图表
+        const ctx = document.getElementById('budgetChart').getContext('2d');
+        const budgetChart = new Chart(ctx, {
+            type: 'pie',
+            data: {
+                labels: ['研究与发展部', '市场营销部'],
+                datasets: [{
+                    data: [1250000, 750000],
+                    backgroundColor: [
+                        '#3498db',
+                        '#2ecc71'
+                    ],
+                    borderColor: [
+                        '#ffffff',
+                        '#ffffff'
+                    ],
+                    borderWidth: 2
+                }]
+            },
+            options: {
+                responsive: true,
+                maintainAspectRatio: false,
+                plugins: {
+                    legend: {
+                        position: 'bottom',
+                    },
+                    tooltip: {
+                        callbacks: {
+                            label: function(context) {
+                                let label = context.label || '';
+                                if (label) {
+                                    label += ': ';
+                                }
+                                label += '$' + new Intl.NumberFormat().format(context.raw);
+                                return label;
+                            }
+                        }
+                    }
+                }
+            }
+        });
+    </script>
+</body>
+</html>

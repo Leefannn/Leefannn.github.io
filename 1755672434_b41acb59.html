@@ -1,0 +1,238 @@
+<!DOCTYPE html>
+<html lang="zh">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>公司信息</title>
+    <style>
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            line-height: 1.6;
+            color: #333;
+            max-width: 1000px;
+            margin: 0 auto;
+            padding: 20px;
+            background-color: #f9f9f9;
+        }
+        .card {
+            background-color: white;
+            border-radius: 8px;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+            margin-bottom: 20px;
+            padding: 20px;
+        }
+        h2 {
+            color: #2c3e50;
+            border-bottom: 2px solid #3498db;
+            padding-bottom: 10px;
+            margin-top: 0;
+        }
+        .info-row {
+            display: flex;
+            margin-bottom: 10px;
+        }
+        .info-label {
+            font-weight: bold;
+            width: 120px;
+            color: #34495e;
+        }
+        .info-value {
+            flex: 1;
+        }
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-bottom: 20px;
+        }
+        th, td {
+            padding: 12px;
+            text-align: left;
+            border-bottom: 1px solid #ddd;
+        }
+        th {
+            background-color: #f2f2f2;
+            font-weight: bold;
+        }
+        tr:nth-child(even) {
+            background-color: #f9f9f9;
+        }
+        .nested-card {
+            margin-left: 20px;
+            margin-top: 15px;
+            border-left: 3px solid #3498db;
+            padding-left: 15px;
+        }
+        .tag {
+            display: inline-block;
+            background-color: #3498db;
+            color: white;
+            padding: 3px 8px;
+            border-radius: 12px;
+            margin-right: 5px;
+            margin-bottom: 5px;
+            font-size: 0.85em;
+        }
+    </style>
+</head>
+<body>
+    <div class="card">
+        <h2>公司信息</h2>
+        <div class="info-row">
+            <div class="info-label">公司名称:</div>
+            <div class="info-value">TechCorp</div>
+        </div>
+        <div class="info-row">
+            <div class="info-label">成立年份:</div>
+            <div class="info-value">2005</div>
+        </div>
+        <div class="info-row">
+            <div class="info-label">上市公司:</div>
+            <div class="info-value">是</div>
+        </div>
+        <div class="info-row">
+            <div class="info-label">营收:</div>
+            <div class="info-value">4.56亿美元</div>
+        </div>
+        <div class="info-row">
+            <div class="info-label">标签:</div>
+            <div class="info-value">
+                <span class="tag">technology</span>
+                <span class="tag">innovation</span>
+                <span class="tag">B2B</span>
+                <span class="tag">SaaS</span>
+            </div>
+        </div>
+    </div>
+
+    <div class="card">
+        <h2>办公室</h2>
+        <table>
+            <tr>
+                <th>位置</th>
+                <th>员工数</th>
+                <th>部门</th>
+                <th>地址</th>
+            </tr>
+            <tr>
+                <td>New York</td>
+                <td>120</td>
+                <td>Engineering, Sales, HR</td>
+                <td>123 Tech Ave, 10001</td>
+            </tr>
+            <tr>
+                <td>San Francisco</td>
+                <td>85</td>
+                <td>Engineering, Marketing</td>
+                <td>456 Innovation Blvd, 94107</td>
+            </tr>
+        </table>
+    </div>
+
+    <div class="card">
+        <h2>产品</h2>
+        <table>
+            <tr>
+                <th>名称</th>
+                <th>价格</th>
+                <th>库存</th>
+                <th>规格</th>
+            </tr>
+            <tr>
+                <td>Widget Pro</td>
+                <td>99.99美元</td>
+                <td>有</td>
+                <td>
+                    <div class="nested-card">
+                        <div>重量: 1.2kg</div>
+                        <div>尺寸: 10.5 × 5.2 × 3.8</div>
+                        <div>颜色: red, blue, black</div>
+                    </div>
+                </td>
+            </tr>
+            <tr>
+                <td>Gadget Lite</td>
+                <td>49.99美元</td>
+                <td>无</td>
+                <td>
+                    <div class="nested-card">
+                        <div>重量: 0.8kg</div>
+                        <div>尺寸: 8.1 × 4.0 × 2.5</div>
+                        <div>颜色: silver, white</div>
+                    </div>
+                </td>
+            </tr>
+        </table>
+    </div>
+
+    <div class="card">
+        <h2>员工信息</h2>
+        <div class="info-row">
+            <div class="info-label">总员工数:</div>
+            <div class="info-value">205</div>
+        </div>
+        
+        <h3 style="margin-top: 20px; margin-bottom: 10px;">部门人数</h3>
+        <table>
+            <tr>
+                <th>部门</th>
+                <th>人数</th>
+            </tr>
+            <tr>
+                <td>Engineering</td>
+                <td>110</td>
+            </tr>
+            <tr>
+                <td>Sales</td>
+                <td>45</td>
+            </tr>
+            <tr>
+                <td>Marketing</td>
+                <td>30</td>
+            </tr>
+            <tr>
+                <td>HR</td>
+                <td>20</td>
+            </tr>
+        </table>
+        
+        <h3 style="margin-top: 20px; margin-bottom: 10px;">管理层</h3>
+        <table>
+            <tr>
+                <th>姓名</th>
+                <th>职位</th>
+                <th>直接下属</th>
+            </tr>
+            <tr>
+                <td>Alice Chen</td>
+                <td>CEO</td>
+                <td>8</td>
+            </tr>
+            <tr>
+                <td>Bob Johnson</td>
+                <td>CTO</td>
+                <td>5</td>
+            </tr>
+        </table>
+    </div>
+
+    <div class="card">
+        <h2>元数据</h2>
+        <div class="info-row">
+            <div class="info-label">最后更新:</div>
+            <div class="info-value">2023-10-15T14:30:00Z</div>
+        </div>
+        <div class="info-row">
+            <div class="info-label">版本:</div>
+            <div class="info-value">2.3.1</div>
+        </div>
+        <div class="info-row">
+            <div class="info-label">状态:</div>
+            <div class="info-value">活跃</div>
+        </div>
+        <div class="info-row">
+            <div class="info-label">标志:</div>
+            <div class="info-value">1, 0, 1, 1, 0</div>
+        </div>
+    </div>
+</body>
+</html>

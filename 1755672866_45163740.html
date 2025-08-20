@@ -1,0 +1,241 @@
+<!DOCTYPE html>
+<html lang="zh">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>公司信息</title>
+    <style>
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            line-height: 1.6;
+            color: #333;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 20px;
+        }
+        .card {
+            background-color: #f9f9f9;
+            border-radius: 8px;
+            padding: 20px;
+            margin-bottom: 20px;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+        }
+        .card h2 {
+            margin-top: 0;
+            color: #2c3e50;
+            border-bottom: 2px solid #3498db;
+            padding-bottom: 10px;
+        }
+        .info-row {
+            display: flex;
+            margin-bottom: 10px;
+        }
+        .info-label {
+            font-weight: bold;
+            width: 200px;
+        }
+        .info-value {
+            flex: 1;
+        }
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-top: 15px;
+        }
+        th, td {
+            padding: 12px;
+            text-align: left;
+            border-bottom: 1px solid #ddd;
+        }
+        th {
+            background-color: #f2f2f2;
+            font-weight: bold;
+        }
+        .nested-card {
+            margin-left: 20px;
+            margin-top: 15px;
+            padding: 15px;
+            background-color: #fff;
+            border-radius: 6px;
+            border-left: 3px solid #3498db;
+        }
+        .tag {
+            display: inline-block;
+            background-color: #e1f0fa;
+            color: #2980b9;
+            padding: 4px 8px;
+            border-radius: 4px;
+            margin-right: 5px;
+            margin-bottom: 5px;
+            font-size: 0.9em;
+        }
+        ul {
+            padding-left: 20px;
+        }
+    </style>
+</head>
+<body>
+    <div class="card">
+        <h2>🏢 公司信息</h2>
+        <div class="info-row">
+            <div class="info-label">公司名称:</div>
+            <div class="info-value">Tech Innovations Inc.</div>
+        </div>
+        <div class="info-row">
+            <div class="info-label">成立年份:</div>
+            <div class="info-value">2010</div>
+        </div>
+        <div class="info-row">
+            <div class="info-label">是否上市公司:</div>
+            <div class="info-value">是</div>
+        </div>
+        <div class="info-row">
+            <div class="info-label">股票代码:</div>
+            <div class="info-value">TII</div>
+        </div>
+        <div class="info-row">
+            <div class="info-label">营收:</div>
+            <div class="info-value">45.6亿美元</div>
+        </div>
+    </div>
+
+    <div class="card">
+        <h2>👥 部门</h2>
+        <table>
+            <thead>
+                <tr>
+                    <th>部门名称</th>
+                    <th>经理</th>
+                    <th>预算</th>
+                    <th>项目</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td>Research & Development</td>
+                    <td>Alice Johnson (EMP-02381)</td>
+                    <td>1,250,000美元</td>
+                    <td>
+                        <div class="nested-card">
+                            <div><strong>项目ID:</strong> PROJ-001</div>
+                            <div><strong>项目名称:</strong> Quantum Computing Framework</div>
+                            <div><strong>状态:</strong> in-progress</div>
+                            <div><strong>团队规模:</strong> 15人</div>
+                            <div><strong>里程碑:</strong></div>
+                            <ul>
+                                <li>Phase 1 Completion (2023-06-30) - 已完成</li>
+                                <li>Alpha Release (2023-12-15) - 未完成</li>
+                            </ul>
+                        </div>
+                    </td>
+                </tr>
+                <tr>
+                    <td>Marketing</td>
+                    <td>Bob Smith (EMP-04127)</td>
+                    <td>750,000美元</td>
+                    <td>
+                        <div class="nested-card">
+                            <div><strong>项目ID:</strong> PROJ-042</div>
+                            <div><strong>项目名称:</strong> Global Brand Awareness Campaign</div>
+                            <div><strong>状态:</strong> planning</div>
+                            <div><strong>团队规模:</strong> 8人</div>
+                            <div><strong>里程碑:</strong> 暂无</div>
+                        </div>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+
+    <div class="card">
+        <h2>📍 办公地点</h2>
+        <table>
+            <thead>
+                <tr>
+                    <th>地址</th>
+                    <th>员工数量</th>
+                    <th>设施类型</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td>
+                        <div class="nested-card">
+                            <div><strong>街道:</strong> 123 Innovation Way</div>
+                            <div><strong>城市:</strong> San Francisco</div>
+                            <div><strong>州:</strong> CA</div>
+                            <div><strong>邮编:</strong> 94103</div>
+                            <div><strong>坐标:</strong> 37.7749, -122.4194</div>
+                        </div>
+                    </td>
+                    <td>250人</td>
+                    <td>总部</td>
+                </tr>
+                <tr>
+                    <td>
+                        <div class="nested-card">
+                            <div><strong>街道:</strong> 456 Tech Boulevard</div>
+                            <div><strong>城市:</strong> Austin</div>
+                            <div><strong>州:</strong> TX</div>
+                            <div><strong>邮编:</strong> 73301</div>
+                            <div><strong>坐标:</strong> 30.2672, -97.7431</div>
+                        </div>
+                    </td>
+                    <td>120人</td>
+                    <td>研发中心</td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+
+    <div class="card">
+        <h2>🤝 合作伙伴</h2>
+        <table>
+            <thead>
+                <tr>
+                    <th>合作伙伴名称</th>
+                    <th>合作类型</th>
+                    <th>合作开始日期</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td>Cloud Services Ltd.</td>
+                    <td>技术</td>
+                    <td>2018-05-14</td>
+                </tr>
+                <tr>
+                    <td>Global Logistics Inc.</td>
+                    <td>供应链</td>
+                    <td>2020-11-03</td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+
+    <div class="card">
+        <h2>📊 元数据</h2>
+        <div class="info-row">
+            <div class="info-label">最后更新:</div>
+            <div class="info-value">2023-03-28T14:32:18Z</div>
+        </div>
+        <div class="info-row">
+            <div class="info-label">版本:</div>
+            <div class="info-value">2.3.1</div>
+        </div>
+        <div class="info-row">
+            <div class="info-label">标签:</div>
+            <div class="info-value">
+                <span class="tag">technology</span>
+                <span class="tag">innovation</span>
+                <span class="tag">B2B</span>
+                <span class="tag">SaaS</span>
+            </div>
+        </div>
+        <div class="info-row">
+            <div class="info-label">备注:</div>
+            <div class="info-value">无</div>
+        </div>
+    </div>
+</body>
+</html>

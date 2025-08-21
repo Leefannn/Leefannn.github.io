@@ -1,0 +1,404 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>TechCorp 公司数据</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background-color: #f5f7fa;
+            color: #333;
+            line-height: 1.6;
+            padding: 20px;
+        }
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+        .header {
+            text-align: center;
+            margin-bottom: 30px;
+            padding: 20px;
+            background: linear-gradient(135deg, #6a11cb 0%, #2575fc 100%);
+            color: white;
+            border-radius: 10px;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+        }
+        .header h1 {
+            font-size: 2.5rem;
+            margin-bottom: 10px;
+        }
+        .header p {
+            font-size: 1.2rem;
+            opacity: 0.9;
+        }
+        .card {
+            background-color: white;
+            border-radius: 10px;
+            padding: 25px;
+            margin-bottom: 25px;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.05);
+            transition: transform 0.3s ease;
+        }
+        .card:hover {
+            transform: translateY(-5px);
+        }
+        .card-title {
+            font-size: 1.5rem;
+            color: #2c3e50;
+            margin-bottom: 15px;
+            padding-bottom: 10px;
+            border-bottom: 2px solid #eef2f7;
+            display: flex;
+            align-items: center;
+        }
+        .card-title .emoji {
+            margin-right: 10px;
+            font-size: 1.8rem;
+        }
+        .info-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 15px;
+            margin-bottom: 15px;
+        }
+        .info-item {
+            background-color: #f8f9fa;
+            padding: 12px;
+            border-radius: 8px;
+            border-left: 4px solid #6a11cb;
+        }
+        .info-label {
+            font-weight: 600;
+            color: #6a11cb;
+            margin-bottom: 5px;
+        }
+        .info-value {
+            font-size: 1.1rem;
+        }
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-top: 15px;
+        }
+        th, td {
+            padding: 12px 15px;
+            text-align: left;
+            border-bottom: 1px solid #eef2f7;
+        }
+        th {
+            background-color: #f8f9fa;
+            font-weight: 600;
+            color: #2c3e50;
+        }
+        tr:hover {
+            background-color: #f8f9fa;
+        }
+        .badge {
+            display: inline-block;
+            padding: 4px 8px;
+            background-color: #e9ecef;
+            color: #495057;
+            border-radius: 4px;
+            margin-right: 5px;
+            margin-bottom: 5px;
+            font-size: 0.85rem;
+        }
+        .status {
+            display: inline-block;
+            width: 12px;
+            height: 12px;
+            border-radius: 50%;
+            margin-right: 5px;
+        }
+        .status.true {
+            background-color: #28a745;
+        }
+        .status.false {
+            background-color: #dc3545;
+        }
+        .status.null {
+            background-color: #6c757d;
+        }
+        .nested {
+            margin-left: 20px;
+            padding-left: 15px;
+            border-left: 2px solid #eef2f7;
+        }
+        .chart-container {
+            height: 300px;
+            margin-top: 20px;
+        }
+    </style>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+</head>
+<body>
+    <div class="container">
+        <div class="header">
+            <h1>🏢 TechCorp</h1>
+            <p>成立于 2005 年 | 上市公司 | 年收入: 45.6亿美元</p>
+        </div>
+        
+        <div class="card">
+            <div class="card-title">
+                <span class="emoji">📊</span>公司概览
+            </div>
+            <div class="info-grid">
+                <div class="info-item">
+                    <div class="info-label">公司名称</div>
+                    <div class="info-value">TechCorp</div>
+                </div>
+                <div class="info-item">
+                    <div class="info-label">成立年份</div>
+                    <div class="info-value">2005</div>
+                </div>
+                <div class="info-item">
+                    <div class="info-label">上市状态</div>
+                    <div class="info-value">
+                        <span class="status true"></span>是
+                    </div>
+                </div>
+                <div class="info-item">
+                    <div class="info-label">年收入</div>
+                    <div class="info-value">45.6亿美元</div>
+                </div>
+                <div class="info-item">
+                    <div class="info-label">员工总数</div>
+                    <div class="info-value">205</div>
+                </div>
+                <div class="info-item">
+                    <div class="info-label">即将开展的项目</div>
+                    <div class="info-value">
+                        <span class="status null"></span>无
+                    </div>
+                </div>
+            </div>
+            <div class="info-item">
+                <div class="info-label">标签</div>
+                <div class="info-value">
+                    <span class="badge">technology</span>
+                    <span class="badge">innovation</span>
+                    <span class="badge">B2B</span>
+                    <span class="badge">SaaS</span>
+                </div>
+            </div>
+        </div>
+        
+        <div class="card">
+            <div class="card-title">
+                <span class="emoji">🏢</span>办公地点
+            </div>
+            <table>
+                <thead>
+                    <tr>
+                        <th>地点</th>
+                        <th>员工数</th>
+                        <th>部门</th>
+                        <th>地址</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>纽约</td>
+                        <td>120</td>
+                        <td>
+                            <span class="badge">Engineering</span>
+                            <span class="badge">Sales</span>
+                            <span class="badge">HR</span>
+                        </td>
+                        <td>
+                            <div>123 Tech Ave</div>
+                            <div>邮编: 10001</div>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>旧金山</td>
+                        <td>85</td>
+                        <td>
+                            <span class="badge">Engineering</span>
+                            <span class="badge">Marketing</span>
+                        </td>
+                        <td>
+                            <div>456 Innovation Blvd</div>
+                            <div>邮编: 94107</div>
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+        
+        <div class="card">
+            <div class="card-title">
+                <span class="emoji">📦</span>产品
+            </div>
+            <table>
+                <thead>
+                    <tr>
+                        <th>产品名称</th>
+                        <th>价格</th>
+                        <th>库存状态</th>
+                        <th>规格</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>Widget Pro</td>
+                        <td>$99.99</td>
+                        <td><span class="status true"></span>有库存</td>
+                        <td>
+                            <div class="nested">
+                                <div><strong>重量:</strong> 1.2</div>
+                                <div><strong>尺寸:</strong> [10.5, 5.2, 3.8]</div>
+                                <div><strong>颜色:</strong> 
+                                    <span class="badge">red</span>
+                                    <span class="badge">blue</span>
+                                    <span class="badge">black</span>
+                                </div>
+                            </div>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>Gadget Lite</td>
+                        <td>$49.99</td>
+                        <td><span class="status false"></span>无库存</td>
+                        <td>
+                            <div class="nested">
+                                <div><strong>重量:</strong> 0.8</div>
+                                <div><strong>尺寸:</strong> [8.1, 4.0, 2.5]</div>
+                                <div><strong>颜色:</strong> 
+                                    <span class="badge">silver</span>
+                                    <span class="badge">white</span>
+                                </div>
+                            </div>
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+        
+        <div class="card">
+            <div class="card-title">
+                <span class="emoji">👥</span>员工分布
+            </div>
+            <div class="info-item">
+                <div class="info-label">总员工数</div>
+                <div class="info-value">205</div>
+            </div>
+            <div class="chart-container">
+                <canvas id="departmentChart"></canvas>
+            </div>
+        </div>
+        
+        <div class="card">
+            <div class="card-title">
+                <span class="emoji">👔</span>管理层
+            </div>
+            <table>
+                <thead>
+                    <tr>
+                        <th>姓名</th>
+                        <th>职位</th>
+                        <th>直接下属数量</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>Alice Chen</td>
+                        <td>CEO</td>
+                        <td>8</td>
+                    </tr>
+                    <tr>
+                        <td>Bob Johnson</td>
+                        <td>CTO</td>
+                        <td>5</td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+        
+        <div class="card">
+            <div class="card-title">
+                <span class="emoji">ℹ️</span>元数据
+            </div>
+            <div class="info-grid">
+                <div class="info-item">
+                    <div class="info-label">最后更新时间</div>
+                    <div class="info-value">2023-10-15T14:30:00Z</div>
+                </div>
+                <div class="info-item">
+                    <div class="info-label">版本</div>
+                    <div class="info-value">2.3.1</div>
+                </div>
+                <div class="info-item">
+                    <div class="info-label">活跃状态</div>
+                    <div class="info-value">
+                        <span class="status true"></span>是
+                    </div>
+                </div>
+            </div>
+            <div class="info-item">
+                <div class="info-label">标志</div>
+                <div class="info-value">[1, 0, 1, 1, 0]</div>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        // 员工部门分布图表
+        const ctx = document.getElementById('departmentChart').getContext('2d');
+        const departmentChart = new Chart(ctx, {
+            type: 'bar',
+            data: {
+                labels: ['Engineering', 'Sales', 'Marketing', 'HR'],
+                datasets: [{
+                    label: '员工数量',
+                    data: [110, 45, 30, 20],
+                    backgroundColor: [
+                        'rgba(106, 17, 203, 0.7)',
+                        'rgba(37, 117, 252, 0.7)',
+                        'rgba(72, 187, 120, 0.7)',
+                        'rgba(255, 193, 7, 0.7)'
+                    ],
+                    borderColor: [
+                        'rgba(106, 17, 203, 1)',
+                        'rgba(37, 117, 252, 1)',
+                        'rgba(72, 187, 120, 1)',
+                        'rgba(255, 193, 7, 1)'
+                    ],
+                    borderWidth: 1
+                }]
+            },
+            options: {
+                responsive: true,
+                maintainAspectRatio: false,
+                scales: {
+                    y: {
+                        beginAtZero: true,
+                        ticks: {
+                            precision: 0
+                        }
+                    }
+                },
+                plugins: {
+                    legend: {
+                        display: false
+                    },
+                    title: {
+                        display: true,
+                        text: '各部门员工分布',
+                        font: {
+                            size: 16
+                        }
+                    }
+                }
+            }
+        });
+    </script>
+</body>
+</html>

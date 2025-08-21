@@ -1,0 +1,290 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>TechCorp 公司数据</title>
+    <style>
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            line-height: 1.6;
+            color: #333;
+            background-color: #f8f9fa;
+            margin: 0;
+            padding: 20px;
+        }
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+        .card {
+            background-color: white;
+            border-radius: 8px;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+            margin-bottom: 20px;
+            padding: 20px;
+        }
+        .card-title {
+            font-size: 1.5rem;
+            font-weight: 600;
+            margin-bottom: 15px;
+            color: #2c3e50;
+            border-bottom: 2px solid #3498db;
+            padding-bottom: 10px;
+        }
+        .info-item {
+            margin-bottom: 10px;
+            display: flex;
+        }
+        .info-label {
+            font-weight: 600;
+            width: 150px;
+            color: #555;
+        }
+        .info-value {
+            flex: 1;
+        }
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-top: 10px;
+        }
+        th, td {
+            padding: 12px 15px;
+            text-align: left;
+            border-bottom: 1px solid #ddd;
+        }
+        th {
+            background-color: #f2f2f2;
+            font-weight: 600;
+        }
+        tr:hover {
+            background-color: #f5f5f5;
+        }
+        .tag {
+            display: inline-block;
+            background-color: #e1f0fa;
+            color: #3498db;
+            padding: 3px 8px;
+            border-radius: 4px;
+            margin-right: 5px;
+            font-size: 0.85rem;
+        }
+        .status-true {
+            color: #27ae60;
+            font-weight: 600;
+        }
+        .status-false {
+            color: #e74c3c;
+            font-weight: 600;
+        }
+        .nested-card {
+            background-color: #f8f9fa;
+            border-radius: 6px;
+            padding: 15px;
+            margin-top: 10px;
+        }
+        .chart-container {
+            height: 250px;
+            margin-top: 15px;
+        }
+    </style>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+</head>
+<body>
+    <div class="container">
+        <div class="card">
+            <div class="card-title">🏢 公司基本信息</div>
+            <div class="info-item">
+                <div class="info-label">公司名称:</div>
+                <div class="info-value">TechCorp</div>
+            </div>
+            <div class="info-item">
+                <div class="info-label">成立年份:</div>
+                <div class="info-value">2005</div>
+            </div>
+            <div class="info-item">
+                <div class="info-label">是否上市:</div>
+                <div class="info-value status-true">是</div>
+            </div>
+            <div class="info-item">
+                <div class="info-label">营收:</div>
+                <div class="info-value">45.6亿美元</div>
+            </div>
+            <div class="info-item">
+                <div class="info-label">标签:</div>
+                <div class="info-value">
+                    <span class="tag">技术</span>
+                    <span class="tag">创新</span>
+                    <span class="tag">B2B</span>
+                    <span class="tag">SaaS</span>
+                </div>
+            </div>
+        </div>
+
+        <div class="card">
+            <div class="card-title">📍 办公室信息</div>
+            <table>
+                <thead>
+                    <tr>
+                        <th>位置</th>
+                        <th>员工数</th>
+                        <th>部门</th>
+                        <th>地址</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>纽约</td>
+                        <td>120</td>
+                        <td>工程部、销售部、人力资源部</td>
+                        <td>123 Tech Ave, 10001</td>
+                    </tr>
+                    <tr>
+                        <td>旧金山</td>
+                        <td>85</td>
+                        <td>工程部、市场部</td>
+                        <td>456 Innovation Blvd, 94107</td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+
+        <div class="card">
+            <div class="card-title">📦 产品信息</div>
+            <table>
+                <thead>
+                    <tr>
+                        <th>产品名称</th>
+                        <th>价格</th>
+                        <th>库存状态</th>
+                        <th>重量</th>
+                        <th>尺寸</th>
+                        <th>颜色</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>Widget Pro</td>
+                        <td>$99.99</td>
+                        <td class="status-true">有库存</td>
+                        <td>1.2kg</td>
+                        <td>10.5 × 5.2 × 3.8 cm</td>
+                        <td>红色、蓝色、黑色</td>
+                    </tr>
+                    <tr>
+                        <td>Gadget Lite</td>
+                        <td>$49.99</td>
+                        <td class="status-false">无库存</td>
+                        <td>0.8kg</td>
+                        <td>8.1 × 4.0 × 2.5 cm</td>
+                        <td>银色、白色</td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+
+        <div class="card">
+            <div class="card-title">👥 员工信息</div>
+            <div class="info-item">
+                <div class="info-label">员工总数:</div>
+                <div class="info-value">205人</div>
+            </div>
+            <div class="nested-card">
+                <div class="card-title">各部门员工分布</div>
+                <div class="chart-container">
+                    <canvas id="departmentChart"></canvas>
+                </div>
+            </div>
+            <div class="nested-card">
+                <div class="card-title">管理层</div>
+                <table>
+                    <thead>
+                        <tr>
+                            <th>姓名</th>
+                            <th>职位</th>
+                            <th>直接下属数</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>Alice Chen</td>
+                            <td>CEO</td>
+                            <td>8</td>
+                        </tr>
+                        <tr>
+                            <td>Bob Johnson</td>
+                            <td>CTO</td>
+                            <td>5</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+
+        <div class="card">
+            <div class="card-title">🔧 元数据</div>
+            <div class="info-item">
+                <div class="info-label">最后更新:</div>
+                <div class="info-value">2023-10-15 14:30:00 UTC</div>
+            </div>
+            <div class="info-item">
+                <div class="info-label">版本:</div>
+                <div class="info-value">2.3.1</div>
+            </div>
+            <div class="info-item">
+                <div class="info-label">活跃状态:</div>
+                <div class="info-value status-true">是</div>
+            </div>
+            <div class="info-item">
+                <div class="info-label">标志:</div>
+                <div class="info-value">[1, 0, 1, 1, 0]</div>
+            </div>
+            <div class="info-item">
+                <div class="info-label">即将到来的项目:</div>
+                <div class="info-value">无</div>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        // 部门员工分布图表
+        const ctx = document.getElementById('departmentChart').getContext('2d');
+        const departmentChart = new Chart(ctx, {
+            type: 'bar',
+            data: {
+                labels: ['工程部', '销售部', '市场部', '人力资源部'],
+                datasets: [{
+                    label: '员工数量',
+                    data: [110, 45, 30, 20],
+                    backgroundColor: [
+                        'rgba(54, 162, 235, 0.7)',
+                        'rgba(255, 99, 132, 0.7)',
+                        'rgba(255, 206, 86, 0.7)',
+                        'rgba(75, 192, 192, 0.7)'
+                    ],
+                    borderColor: [
+                        'rgba(54, 162, 235, 1)',
+                        'rgba(255, 99, 132, 1)',
+                        'rgba(255, 206, 86, 1)',
+                        'rgba(75, 192, 192, 1)'
+                    ],
+                    borderWidth: 1
+                }]
+            },
+            options: {
+                responsive: true,
+                maintainAspectRatio: false,
+                scales: {
+                    y: {
+                        beginAtZero: true,
+                        ticks: {
+                            precision: 0
+                        }
+                    }
+                }
+            }
+        });
+    </script>
+</body>
+</html>

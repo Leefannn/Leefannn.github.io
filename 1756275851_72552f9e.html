@@ -1,0 +1,328 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>TechCorp 公司信息</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.3/font/bootstrap-icons.css">
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <style>
+        body {
+            background-color: #f8f9fa;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+        .card {
+            margin-bottom: 20px;
+            border-radius: 10px;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+            transition: transform 0.3s;
+        }
+        .card:hover {
+            transform: translateY(-5px);
+        }
+        .card-header {
+            font-weight: 600;
+            background-color: #f1f8ff;
+            border-bottom: 1px solid #e1e4e8;
+        }
+        .badge {
+            margin-right: 5px;
+        }
+        .table th {
+            background-color: #f8f9fa;
+        }
+        .chart-container {
+            position: relative;
+            height: 300px;
+            width: 100%;
+        }
+        .info-item {
+            margin-bottom: 10px;
+        }
+        .info-label {
+            font-weight: 600;
+            color: #586069;
+        }
+        .info-value {
+            color: #24292e;
+        }
+        .null-value {
+            color: #6c757d;
+            font-style: italic;
+        }
+    </style>
+</head>
+<body>
+    <div class="container py-4">
+        <h1 class="text-center mb-4">TechCorp 公司信息</h1>
+        
+        <!-- 公司基本信息 -->
+        <div class="card">
+            <div class="card-header">
+                <i class="bi bi-building"></i> 公司基本信息
+            </div>
+            <div class="card-body">
+                <div class="row">
+                    <div class="col-md-6">
+                        <div class="info-item">
+                            <span class="info-label">公司名称:</span>
+                            <span class="info-value">TechCorp</span>
+                        </div>
+                        <div class="info-item">
+                            <span class="info-label">成立年份:</span>
+                            <span class="info-value">2005</span>
+                        </div>
+                        <div class="info-item">
+                            <span class="info-label">是否上市:</span>
+                            <span class="info-value"><i class="bi bi-check-circle-fill text-success"></i> 是</span>
+                        </div>
+                    </div>
+                    <div class="col-md-6">
+                        <div class="info-item">
+                            <span class="info-label">营收:</span>
+                            <span class="info-value">45.6亿美元</span>
+                        </div>
+                        <div class="info-item">
+                            <span class="info-label">标签:</span>
+                            <div>
+                                <span class="badge bg-primary">technology</span>
+                                <span class="badge bg-primary">innovation</span>
+                                <span class="badge bg-primary">B2B</span>
+                                <span class="badge bg-primary">SaaS</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        
+        <!-- 办公室信息 -->
+        <div class="card">
+            <div class="card-header">
+                <i class="bi bi-geo-alt"></i> 办公室信息
+            </div>
+            <div class="card-body">
+                <div class="table-responsive">
+                    <table class="table table-striped">
+                        <thead>
+                            <tr>
+                                <th>地点</th>
+                                <th>员工数</th>
+                                <th>部门</th>
+                                <th>地址</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td>纽约</td>
+                                <td>120</td>
+                                <td>
+                                    <span class="badge bg-secondary">Engineering</span>
+                                    <span class="badge bg-secondary">Sales</span>
+                                    <span class="badge bg-secondary">HR</span>
+                                </td>
+                                <td>123 Tech Ave, 10001</td>
+                            </tr>
+                            <tr>
+                                <td>旧金山</td>
+                                <td>85</td>
+                                <td>
+                                    <span class="badge bg-secondary">Engineering</span>
+                                    <span class="badge bg-secondary">Marketing</span>
+                                </td>
+                                <td>456 Innovation Blvd, 94107</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+        
+        <!-- 产品信息 -->
+        <div class="card">
+            <div class="card-header">
+                <i class="bi bi-box"></i> 产品信息
+            </div>
+            <div class="card-body">
+                <div class="table-responsive">
+                    <table class="table table-striped">
+                        <thead>
+                            <tr>
+                                <th>产品名称</th>
+                                <th>价格</th>
+                                <th>库存状态</th>
+                                <th>规格</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td>Widget Pro</td>
+                                <td>$99.99</td>
+                                <td><i class="bi bi-check-circle-fill text-success"></i> 有库存</td>
+                                <td>
+                                    <div>重量: 1.2kg</div>
+                                    <div>尺寸: 10.5×5.2×3.8cm</div>
+                                    <div>
+                                        颜色: 
+                                        <span class="badge bg-danger">red</span>
+                                        <span class="badge bg-primary">blue</span>
+                                        <span class="badge bg-dark">black</span>
+                                    </div>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>Gadget Lite</td>
+                                <td>$49.99</td>
+                                <td><i class="bi bi-x-circle-fill text-danger"></i> 无库存</td>
+                                <td>
+                                    <div>重量: 0.8kg</div>
+                                    <div>尺寸: 8.1×4.0×2.5cm</div>
+                                    <div>
+                                        颜色: 
+                                        <span class="badge bg-secondary">silver</span>
+                                        <span class="badge bg-light text-dark">white</span>
+                                    </div>
+                                </td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+        
+        <!-- 员工信息 -->
+        <div class="card">
+            <div class="card-header">
+                <i class="bi bi-people"></i> 员工信息
+            </div>
+            <div class="card-body">
+                <div class="row">
+                    <div class="col-md-6">
+                        <div class="info-item">
+                            <span class="info-label">员工总数:</span>
+                            <span class="info-value">205</span>
+                        </div>
+                        
+                        <h5 class="mt-3">管理层</h5>
+                        <div class="table-responsive">
+                            <table class="table table-sm">
+                                <thead>
+                                    <tr>
+                                        <th>姓名</th>
+                                        <th>职位</th>
+                                        <th>直接下属</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <tr>
+                                        <td>Alice Chen</td>
+                                        <td>CEO</td>
+                                        <td>8</td>
+                                    </tr>
+                                    <tr>
+                                        <td>Bob Johnson</td>
+                                        <td>CTO</td>
+                                        <td>5</td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+                    <div class="col-md-6">
+                        <h5>部门分布</h5>
+                        <div class="chart-container">
+                            <canvas id="departmentChart"></canvas>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        
+        <!-- 元数据 -->
+        <div class="card">
+            <div class="card-header">
+                <i class="bi bi-info-circle"></i> 元数据
+            </div>
+            <div class="card-body">
+                <div class="row">
+                    <div class="col-md-6">
+                        <div class="info-item">
+                            <span class="info-label">最后更新:</span>
+                            <span class="info-value">2023-10-15 14:30:00 UTC</span>
+                        </div>
+                        <div class="info-item">
+                            <span class="info-label">版本:</span>
+                            <span class="info-value">2.3.1</span>
+                        </div>
+                    </div>
+                    <div class="col-md-6">
+                        <div class="info-item">
+                            <span class="info-label">活跃状态:</span>
+                            <span class="info-value"><i class="bi bi-toggle-on text-success"></i> 是</span>
+                        </div>
+                        <div class="info-item">
+                            <span class="info-label">标志:</span>
+                            <span class="info-value">[1, 0, 1, 1, 0]</span>
+                        </div>
+                    </div>
+                </div>
+                <div class="info-item mt-3">
+                    <span class="info-label">即将开始的项目:</span>
+                    <span class="null-value">无数据</span>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        // 部门分布图表
+        const ctx = document.getElementById('departmentChart').getContext('2d');
+        const departmentChart = new Chart(ctx, {
+            type: 'pie',
+            data: {
+                labels: ['Engineering', 'Sales', 'Marketing', 'HR'],
+                datasets: [{
+                    data: [110, 45, 30, 20],
+                    backgroundColor: [
+                        'rgba(54, 162, 235, 0.7)',
+                        'rgba(75, 192, 192, 0.7)',
+                        'rgba(255, 159, 64, 0.7)',
+                        'rgba(153, 102, 255, 0.7)'
+                    ],
+                    borderColor: [
+                        'rgba(54, 162, 235, 1)',
+                        'rgba(75, 192, 192, 1)',
+                        'rgba(255, 159, 64, 1)',
+                        'rgba(153, 102, 255, 1)'
+                    ],
+                    borderWidth: 1
+                }]
+            },
+            options: {
+                responsive: true,
+                maintainAspectRatio: false,
+                plugins: {
+                    legend: {
+                        position: 'right',
+                    },
+                    tooltip: {
+                        callbacks: {
+                            label: function(context) {
+                                let label = context.label || '';
+                                if (label) {
+                                    label += ': ';
+                                }
+                                const sum = context.dataset.data.reduce((a, b) => a + b, 0);
+                                const percentage = Math.round((context.raw / sum) * 100);
+                                label += context.raw + ' 人 (' + percentage + '%)';
+                                return label;
+                            }
+                        }
+                    }
+                }
+            }
+        });
+    </script>
+</body>
+</html>

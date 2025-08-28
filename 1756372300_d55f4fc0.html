@@ -1,0 +1,292 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>公司数据展示</title>
+    <style>
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            line-height: 1.6;
+            color: #333;
+            background-color: #f8f9fa;
+            margin: 0;
+            padding: 20px;
+        }
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+        .card {
+            background-color: white;
+            border-radius: 8px;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+            padding: 20px;
+            margin-bottom: 20px;
+        }
+        .card-title {
+            font-size: 1.5rem;
+            font-weight: 600;
+            margin-bottom: 15px;
+            color: #2c3e50;
+            border-bottom: 2px solid #3498db;
+            padding-bottom: 10px;
+        }
+        .info-item {
+            margin-bottom: 10px;
+            display: flex;
+        }
+        .info-label {
+            font-weight: 600;
+            min-width: 120px;
+            color: #34495e;
+        }
+        .info-value {
+            flex: 1;
+        }
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-top: 15px;
+        }
+        th, td {
+            padding: 12px 15px;
+            text-align: left;
+            border-bottom: 1px solid #e1e1e1;
+        }
+        th {
+            background-color: #f8f9fa;
+            font-weight: 600;
+            color: #2c3e50;
+        }
+        tr:hover {
+            background-color: #f8f9fa;
+        }
+        .tag {
+            display: inline-block;
+            background-color: #3498db;
+            color: white;
+            padding: 3px 8px;
+            border-radius: 4px;
+            margin-right: 5px;
+            font-size: 0.85rem;
+        }
+        .null-value {
+            color: #7f8c8d;
+            font-style: italic;
+        }
+        .nested-card {
+            background-color: #f8f9fa;
+            border-radius: 6px;
+            padding: 15px;
+            margin-top: 15px;
+        }
+        .department-chart {
+            display: flex;
+            height: 30px;
+            margin-top: 10px;
+            border-radius: 4px;
+            overflow: hidden;
+        }
+        .department-segment {
+            height: 100%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            font-weight: 500;
+            font-size: 0.85rem;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="card">
+            <div class="card-title">🏢 公司基本信息</div>
+            <div class="info-item">
+                <div class="info-label">公司名称:</div>
+                <div class="info-value">TechCorp</div>
+            </div>
+            <div class="info-item">
+                <div class="info-label">成立年份:</div>
+                <div class="info-value">2005</div>
+            </div>
+            <div class="info-item">
+                <div class="info-label">上市状态:</div>
+                <div class="info-value">✅ 是</div>
+            </div>
+            <div class="info-item">
+                <div class="info-label">营收:</div>
+                <div class="info-value">45.6亿美元</div>
+            </div>
+            <div class="info-item">
+                <div class="info-label">标签:</div>
+                <div class="info-value">
+                    <span class="tag">technology</span>
+                    <span class="tag">innovation</span>
+                    <span class="tag">B2B</span>
+                    <span class="tag">SaaS</span>
+                </div>
+            </div>
+        </div>
+
+        <div class="card">
+            <div class="card-title">📍 办公地点</div>
+            <table>
+                <thead>
+                    <tr>
+                        <th>地点</th>
+                        <th>员工数</th>
+                        <th>部门</th>
+                        <th>地址</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>New York</td>
+                        <td>120</td>
+                        <td>Engineering, Sales, HR</td>
+                        <td>123 Tech Ave, 10001</td>
+                    </tr>
+                    <tr>
+                        <td>San Francisco</td>
+                        <td>85</td>
+                        <td>Engineering, Marketing</td>
+                        <td>456 Innovation Blvd, 94107</td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+
+        <div class="card">
+            <div class="card-title">📦 产品信息</div>
+            <table>
+                <thead>
+                    <tr>
+                        <th>产品名称</th>
+                        <th>价格</th>
+                        <th>库存状态</th>
+                        <th>规格</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>Widget Pro</td>
+                        <td>$99.99</td>
+                        <td>✅ 有库存</td>
+                        <td>
+                            <div class="nested-card">
+                                <div class="info-item">
+                                    <div class="info-label">重量:</div>
+                                    <div class="info-value">1.2</div>
+                                </div>
+                                <div class="info-item">
+                                    <div class="info-label">尺寸:</div>
+                                    <div class="info-value">10.5 x 5.2 x 3.8</div>
+                                </div>
+                                <div class="info-item">
+                                    <div class="info-label">颜色:</div>
+                                    <div class="info-value">red, blue, black</div>
+                                </div>
+                            </div>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>Gadget Lite</td>
+                        <td>$49.99</td>
+                        <td>❌ 无库存</td>
+                        <td>
+                            <div class="nested-card">
+                                <div class="info-item">
+                                    <div class="info-label">重量:</div>
+                                    <div class="info-value">0.8</div>
+                                </div>
+                                <div class="info-item">
+                                    <div class="info-label">尺寸:</div>
+                                    <div class="info-value">8.1 x 4.0 x 2.5</div>
+                                </div>
+                                <div class="info-item">
+                                    <div class="info-label">颜色:</div>
+                                    <div class="info-value">silver, white</div>
+                                </div>
+                            </div>
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+
+        <div class="card">
+            <div class="card-title">👥 员工信息</div>
+            <div class="info-item">
+                <div class="info-label">总员工数:</div>
+                <div class="info-value">205</div>
+            </div>
+            
+            <div class="info-item">
+                <div class="info-label">部门分布:</div>
+                <div class="info-value">
+                    <div class="department-chart">
+                        <div class="department-segment" style="width: 53.66%; background-color: #3498db;">Engineering (110)</div>
+                        <div class="department-segment" style="width: 21.95%; background-color: #2ecc71;">Sales (45)</div>
+                        <div class="department-segment" style="width: 14.63%; background-color: #e74c3c;">Marketing (30)</div>
+                        <div class="department-segment" style="width: 9.76%; background-color: #f39c12;">HR (20)</div>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="info-item">
+                <div class="info-label">管理层:</div>
+                <div class="info-value">
+                    <table>
+                        <thead>
+                            <tr>
+                                <th>姓名</th>
+                                <th>职位</th>
+                                <th>直接下属数</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td>Alice Chen</td>
+                                <td>CEO</td>
+                                <td>8</td>
+                            </tr>
+                            <tr>
+                                <td>Bob Johnson</td>
+                                <td>CTO</td>
+                                <td>5</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+
+        <div class="card">
+            <div class="card-title">📊 元数据</div>
+            <div class="info-item">
+                <div class="info-label">最后更新:</div>
+                <div class="info-value">2023-10-15T14:30:00Z</div>
+            </div>
+            <div class="info-item">
+                <div class="info-label">版本:</div>
+                <div class="info-value">2.3.1</div>
+            </div>
+            <div class="info-item">
+                <div class="info-label">激活状态:</div>
+                <div class="info-value">✅ 是</div>
+            </div>
+            <div class="info-item">
+                <div class="info-label">标志位:</div>
+                <div class="info-value">1, 0, 1, 1, 0</div>
+            </div>
+        </div>
+
+        <div class="card">
+            <div class="card-title">📋 即将开展的项目</div>
+            <div class="null-value">暂无数据</div>
+        </div>
+    </div>
+</body>
+</html>

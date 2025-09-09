@@ -1,0 +1,365 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>公司数据展示</title>
+    <style>
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            line-height: 1.6;
+            color: #333;
+            background-color: #f8f9fa;
+            margin: 0;
+            padding: 20px;
+        }
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+        .card {
+            background: white;
+            border-radius: 8px;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+            padding: 20px;
+            margin-bottom: 20px;
+        }
+        .card-header {
+            border-bottom: 1px solid #eee;
+            padding-bottom: 10px;
+            margin-bottom: 15px;
+            display: flex;
+            align-items: center;
+        }
+        .card-header h2 {
+            margin: 0;
+            font-size: 1.5rem;
+            color: #2c3e50;
+        }
+        .card-header .icon {
+            margin-right: 10px;
+            font-size: 1.5rem;
+        }
+        .info-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+            gap: 15px;
+        }
+        .info-item {
+            padding: 10px;
+            border-left: 3px solid #3498db;
+            background-color: #f8f9fa;
+        }
+        .info-label {
+            font-weight: bold;
+            color: #7f8c8d;
+            font-size: 0.9rem;
+        }
+        .info-value {
+            font-size: 1.1rem;
+        }
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-top: 10px;
+        }
+        th, td {
+            padding: 12px 15px;
+            text-align: left;
+            border-bottom: 1px solid #ddd;
+        }
+        th {
+            background-color: #f2f2f2;
+            font-weight: bold;
+        }
+        tr:hover {
+            background-color: #f5f5f5;
+        }
+        .badge {
+            display: inline-block;
+            padding: 3px 7px;
+            font-size: 0.8rem;
+            border-radius: 4px;
+            background-color: #e9ecef;
+            color: #495057;
+            margin-right: 5px;
+        }
+        .status-in-progress {
+            color: #0275d8;
+            background-color: #d1ecf1;
+        }
+        .status-planning {
+            color: #8a6d3b;
+            background-color: #fff3cd;
+        }
+        .completed {
+            color: #28a745;
+        }
+        .pending {
+            color: #dc3545;
+        }
+        .nested {
+            margin-left: 20px;
+            border-left: 2px solid #eee;
+            padding-left: 15px;
+        }
+        .project-card {
+            background-color: #f8f9fa;
+            border-radius: 6px;
+            padding: 15px;
+            margin-bottom: 15px;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <!-- 公司基本信息 -->
+        <div class="card">
+            <div class="card-header">
+                <span class="icon">🏢</span>
+                <h2>公司信息</h2>
+            </div>
+            <div class="info-grid">
+                <div class="info-item">
+                    <div class="info-label">公司名称</div>
+                    <div class="info-value">Tech Innovations Inc.</div>
+                </div>
+                <div class="info-item">
+                    <div class="info-label">成立年份</div>
+                    <div class="info-value">2010</div>
+                </div>
+                <div class="info-item">
+                    <div class="info-label">是否上市</div>
+                    <div class="info-value">是</div>
+                </div>
+                <div class="info-item">
+                    <div class="info-label">股票代码</div>
+                    <div class="info-value">TII</div>
+                </div>
+                <div class="info-item">
+                    <div class="info-label">营收</div>
+                    <div class="info-value">45.6亿美元</div>
+                </div>
+            </div>
+        </div>
+
+        <!-- 部门信息 -->
+        <div class="card">
+            <div class="card-header">
+                <span class="icon">🏗️</span>
+                <h2>部门信息</h2>
+            </div>
+            
+            <!-- 研发部门 -->
+            <div class="project-card">
+                <h3>🔬 研究与开发</h3>
+                <div class="info-grid">
+                    <div class="info-item">
+                        <div class="info-label">部门经理</div>
+                        <div class="info-value">Alice Johnson</div>
+                    </div>
+                    <div class="info-item">
+                        <div class="info-label">员工ID</div>
+                        <div class="info-value">EMP-02381</div>
+                    </div>
+                    <div class="info-item">
+                        <div class="info-label">专业领域</div>
+                        <div class="info-value">
+                            <span class="badge">AI</span>
+                            <span class="badge">机器学习</span>
+                            <span class="badge">数据科学</span>
+                        </div>
+                    </div>
+                    <div class="info-item">
+                        <div class="info-label">预算</div>
+                        <div class="info-value">125万美元</div>
+                    </div>
+                </div>
+                
+                <div class="nested">
+                    <h4>项目</h4>
+                    <div class="project-card">
+                        <h5>量子计算框架</h5>
+                        <div class="info-grid">
+                            <div class="info-item">
+                                <div class="info-label">项目ID</div>
+                                <div class="info-value">PROJ-001</div>
+                            </div>
+                            <div class="info-item">
+                                <div class="info-label">状态</div>
+                                <div class="info-value"><span class="badge status-in-progress">进行中</span></div>
+                            </div>
+                            <div class="info-item">
+                                <div class="info-label">团队规模</div>
+                                <div class="info-value">15人</div>
+                            </div>
+                        </div>
+                        
+                        <h5>里程碑</h5>
+                        <table>
+                            <thead>
+                                <tr>
+                                    <th>名称</th>
+                                    <th>截止日期</th>
+                                    <th>状态</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td>第一阶段完成</td>
+                                    <td>2023-06-30</td>
+                                    <td><span class="completed">✓ 已完成</span></td>
+                                </tr>
+                                <tr>
+                                    <td>Alpha版本发布</td>
+                                    <td>2023-12-15</td>
+                                    <td><span class="pending">✗ 未完成</span></td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- 市场营销部门 -->
+            <div class="project-card">
+                <h3>📢 市场营销</h3>
+                <div class="info-grid">
+                    <div class="info-item">
+                        <div class="info-label">部门经理</div>
+                        <div class="info-value">Bob Smith</div>
+                    </div>
+                    <div class="info-item">
+                        <div class="info-label">员工ID</div>
+                        <div class="info-value">EMP-04127</div>
+                    </div>
+                    <div class="info-item">
+                        <div class="info-label">专业领域</div>
+                        <div class="info-value">
+                            <span class="badge">数字营销</span>
+                            <span class="badge">品牌策略</span>
+                        </div>
+                    </div>
+                    <div class="info-item">
+                        <div class="info-label">预算</div>
+                        <div class="info-value">75万美元</div>
+                    </div>
+                </div>
+                
+                <div class="nested">
+                    <h4>项目</h4>
+                    <div class="project-card">
+                        <h5>全球品牌意识活动</h5>
+                        <div class="info-grid">
+                            <div class="info-item">
+                                <div class="info-label">项目ID</div>
+                                <div class="info-value">PROJ-042</div>
+                            </div>
+                            <div class="info-item">
+                                <div class="info-label">状态</div>
+                                <div class="info-value"><span class="badge status-planning">规划中</span></div>
+                            </div>
+                            <div class="info-item">
+                                <div class="info-label">团队规模</div>
+                                <div class="info-value">8人</div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- 公司地点 -->
+        <div class="card">
+            <div class="card-header">
+                <span class="icon">📍</span>
+                <h2>公司地点</h2>
+            </div>
+            <table>
+                <thead>
+                    <tr>
+                        <th>地址</th>
+                        <th>员工数量</th>
+                        <th>设施类型</th>
+                        <th>坐标</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>123 Innovation Way, San Francisco, CA 94103</td>
+                        <td>250人</td>
+                        <td>总部</td>
+                        <td>37.7749, -122.4194</td>
+                    </tr>
+                    <tr>
+                        <td>456 Tech Boulevard, Austin, TX 73301</td>
+                        <td>120人</td>
+                        <td>研发中心</td>
+                        <td>30.2672, -97.7431</td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+
+        <!-- 合作伙伴 -->
+        <div class="card">
+            <div class="card-header">
+                <span class="icon">🤝</span>
+                <h2>合作伙伴</h2>
+            </div>
+            <table>
+                <thead>
+                    <tr>
+                        <th>公司名称</th>
+                        <th>合作类型</th>
+                        <th>合作开始时间</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>Cloud Services Ltd.</td>
+                        <td>技术合作</td>
+                        <td>2018-05-14</td>
+                    </tr>
+                    <tr>
+                        <td>Global Logistics Inc.</td>
+                        <td>供应链合作</td>
+                        <td>2020-11-03</td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+
+        <!-- 元数据 -->
+        <div class="card">
+            <div class="card-header">
+                <span class="icon">📋</span>
+                <h2>元数据</h2>
+            </div>
+            <div class="info-grid">
+                <div class="info-item">
+                    <div class="info-label">最后更新时间</div>
+                    <div class="info-value">2023-03-28 14:32:18 UTC</div>
+                </div>
+                <div class="info-item">
+                    <div class="info-label">版本</div>
+                    <div class="info-value">2.3.1</div>
+                </div>
+                <div class="info-item">
+                    <div class="info-label">标签</div>
+                    <div class="info-value">
+                        <span class="badge">技术</span>
+                        <span class="badge">创新</span>
+                        <span class="badge">B2B</span>
+                        <span class="badge">SaaS</span>
+                    </div>
+                </div>
+                <div class="info-item">
+                    <div class="info-label">备注</div>
+                    <div class="info-value">无</div>
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+</html>
